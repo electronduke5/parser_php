@@ -64,7 +64,10 @@ foreach ($logs as $log){
 
 $json = ['views' => $views, 'urls' => $countUniqueUrls, 'traffic' => $traffic, 'crawlers' => $crawlers, 'statusCodes' => $statusCodes];
 
-echo json_encode($json);
+$resultJson = json_encode($json, JSON_PRETTY_PRINT);
+echo '<pre>';
+    echo  $resultJson;
+echo '</pre>';
 
 /**
  * @param Log[] $logs

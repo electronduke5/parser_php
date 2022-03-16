@@ -6,6 +6,7 @@ $LOG_PATTERN = "/(\S+) (\S+) (\S+) \[([^:]+):(\d+:\d+:\d+) ([^\]]+)\] \"(\S+) (.
 $logFileName = 'access_log.txt';
 
 $file = fopen($logFileName, 'r') or die ('Не удалось открыть файл!');
+
 /**
  * @type Log[] $logs
  */
@@ -45,7 +46,6 @@ while (!feof($file)) {
         $statusCodes[$line['status']] = 1;
     }
 
-    //Добавление в массив уникальных url
     if (!in_array($line['url'], $urls)){
         $urls[] = $line['url'];
         $countUniqueUrls++;
@@ -55,7 +55,6 @@ while (!feof($file)) {
 }
 fclose($file);
 
-//Подсчет браузеров
 $crawlers = countingCrawlers($logs);
 
 foreach ($logs as $log){

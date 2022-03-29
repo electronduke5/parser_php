@@ -59,7 +59,8 @@ $crawlers = countingCrawlers($logs);
 
 foreach ($logs as $log){
     $views++;
-    $traffic += $log->bytes();
+    if($log->method() == "POST")
+        $traffic += $log->bytes();
 }
 
 $json = ['views' => $views, 'urls' => $countUniqueUrls, 'traffic' => $traffic, 'crawlers' => $crawlers, 'statusCodes' => $statusCodes];

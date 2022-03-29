@@ -37,4 +37,7 @@ class Log
     public function agent() : string{
         return $this->agent;
     }
+    public function method() : string{
+        return $this->method;
+    }
 }

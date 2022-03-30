@@ -46,8 +46,8 @@ while (!feof($file)) {
         $statusCodes[$line['status']] = 1;
     }
 
-    if (!in_array($line['url'], $urls)){
-        $urls[] = $line['url'];
+    if (!in_array($line['path'], $urls)){
+        $urls[] = $line['path'];
         $countUniqueUrls++;
     }
 
